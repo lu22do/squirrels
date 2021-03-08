@@ -1,7 +1,9 @@
 import { Meteor } from 'meteor/meteor';
+import Stuffs from '/imports/api/stuffs';
+import { _ } from 'meteor/underscore'; 
 
 // called everytime someone subscribes (or unsubscribes (logout)) 
-Meteor.publish("stuffs", function () {
+Meteor.publish('stuffs', function () {
   return Stuffs.find(); 
 
 /* ---> to return only stuff owned by user:
@@ -63,3 +65,5 @@ Meteor.users.allow({
 		return currentUser && currentUser.username === 'admin';
   }
 });
+
+console.log('Publication started');

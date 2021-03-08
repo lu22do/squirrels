@@ -17,14 +17,13 @@ The UI react components are the following:
 - Users:
     - User list
 
-This project was created by adding the following meteor packages:
+This project was created by adding the following meteor packages to an app created with --react flag:
 - accounts-password
 - twbs:bootstrap
 - momentjs:moment
 - aldeed:collection2 & aldeed:schema-deny
 and the following npm packages:
-- react, react-dom, prop-types
-- react-router-dom????
+- react-router-dom
 - simpl-schema
 
 Possible improvements:

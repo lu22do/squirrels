@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import './publication'
 
 // create admin account if it does not exists
 if (!Meteor.users.findOne({username: 'admin'})) {
@@ -11,3 +12,5 @@ if (!Meteor.users.findOne({username: 'admin'})) {
     console.log('Admin account creation error');
   }
 }
+
+console.log('Server started');
