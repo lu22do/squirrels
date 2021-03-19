@@ -18,7 +18,7 @@ StuffsSchema = new SimpleSchema({
   'created': {
     type: Date,
     label: 'Creation date',
-   // denyUpdate: true,
+    denyUpdate: true,
     autoValue: function() {
       if ( this.isInsert ) {
         return new Date();
