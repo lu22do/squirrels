@@ -11,10 +11,14 @@ GamesSchema = new SimpleSchema({
     type: String,
     label: 'Owner UserId'
   },
-  'attribute': {
-    type: String,
-    label: 'Generic attribute'
-  },
+//  'state': {
+//    type: String,
+//    label: 'Game state',
+//  },
+//  'code': {
+//    type: SimpleSchema.Integer,
+//    label: 'Unique game code'
+//  },
   'created': {
     type: Date,
     label: 'Creation date',

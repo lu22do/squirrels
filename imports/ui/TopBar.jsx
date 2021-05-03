@@ -33,7 +33,7 @@ class TopBar extends Component {
               <span className="icon-bar"></span>
             </button>
 
-            <Link className="navbar-brand" to="/">Brand</Link>
+            <Link className="navbar-brand" to="/">squirrels.io</Link>
           </div>
 
           {currentUser &&

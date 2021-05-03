@@ -37,13 +37,6 @@ export default class GameEntry extends Component {
               onChange={this.handleInputChange} />
           </div>
 
-          <div className="form-group">
-            <label>Game attribute</label>
-            <input className="form-control" type="text" name="attribute"
-              value={this.state.attribute}
-              onChange={this.handleInputChange} />
-          </div>
-
           <input className="btn btn-default" type="submit" value={this.props.submitTitle}/>&nbsp;
           {hasCancelButton &&
             <Link className="btn btn-default" to="/games-list">Cancel</Link>
