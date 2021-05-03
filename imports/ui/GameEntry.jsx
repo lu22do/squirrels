@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-export default class StuffEntry extends Component {
+export default class GameEntry extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       loaded: false,
-      name: this.props.stuff ? this.props.stuff.name : '',
-      attribute: this.props.stuff ? this.props.stuff.attribute : ''
+      name: this.props.game ? this.props.game.name : '',
+      attribute: this.props.game ? this.props.game.attribute : ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -31,14 +31,14 @@ export default class StuffEntry extends Component {
         <form action="action" onSubmit={this.props.handleSubmit}>
 
           <div className="form-group">
-            <label>Stuff name</label>
+            <label>Game name</label>
             <input className="form-control" type="text" name="name"
               value={this.state.name}
               onChange={this.handleInputChange} />
           </div>
 
           <div className="form-group">
-            <label>Stuff attribute</label>
+            <label>Game attribute</label>
             <input className="form-control" type="text" name="attribute"
               value={this.state.attribute}
               onChange={this.handleInputChange} />
@@ -46,7 +46,7 @@ export default class StuffEntry extends Component {
 
           <input className="btn btn-default" type="submit" value={this.props.submitTitle}/>&nbsp;
           {hasCancelButton &&
-            <Link className="btn btn-default" to="/stuffs-list">Cancel</Link>
+            <Link className="btn btn-default" to="/games-list">Cancel</Link>
           }
         </form>
       </div>

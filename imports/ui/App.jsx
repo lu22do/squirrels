@@ -3,9 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom';
 
 import TopBar from './TopBar.jsx';
-import StuffsList from './StuffsList.jsx';
-import NewStuff from './NewStuff.jsx';
-import EditStuff from './EditStuff.jsx';
+import GamesList from './GamesList.jsx';
+import NewGame from './NewGame.jsx';
+import EditGame from './EditGame.jsx';
 import Users from './Users.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
@@ -39,9 +39,9 @@ export default class App extends Component {
           <PrivateRoute exact path='/' component={Welcome}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <PrivateRoute path='/stuffs-list' component={StuffsList}/>
-          <PrivateRoute path='/new-stuff' component={NewStuff}/>
-          <PrivateRoute path='/edit-stuff/:id' component={EditStuff}/>
+          <PrivateRoute path='/games-list' component={GamesList}/>
+          <PrivateRoute path='/new-game' component={NewGame}/>
+          <PrivateRoute path='/edit-game/:id' component={EditGame}/>
           <PrivateRoute path='/users' component={Users}/>
         </div>
       </BrowserRouter>

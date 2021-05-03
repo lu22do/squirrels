@@ -1,8 +1,8 @@
 import SimpleSchema from 'simpl-schema';
 
-Stuffs = new Mongo.Collection('stuffs');
+Games = new Mongo.Collection('games');
 
-StuffsSchema = new SimpleSchema({
+GamesSchema = new SimpleSchema({
   'name': {
     type: String,
     label: 'Name'
@@ -27,6 +27,6 @@ StuffsSchema = new SimpleSchema({
   },
 });
 
-Stuffs.attachSchema(StuffsSchema);
+Games.attachSchema(GamesSchema);
 
-export default Stuffs;
+export default Games;

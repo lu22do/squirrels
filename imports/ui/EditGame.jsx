@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { withTracker } from 'meteor/react-meteor-data';
 
-import Stuffs from '../api/stuffs';
-import StuffEntry from './StuffEntry.jsx'
+import Games from '../api/games';
+import GameEntry from './GameEntry.jsx'
 
-class EditStuff extends Component {
+class EditGame extends Component {
   constructor(props) {
     super(props);
 
@@ -19,18 +19,18 @@ class EditStuff extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let name = this.stuffEntry.state.name;
-    let attribute = this.stuffEntry.state.attribute;
+    let name = this.gameEntry.state.name;
+    let attribute = this.gameEntry.state.attribute;
     let that = this;
 
-    Stuffs.update(this.props.stuff._id,
+    Games.update(this.props.game._id,
                   {$set: {name: name,
                           attribute: attribute}}, function(err, _id) {
       if (err) {
-        alert('Unexpected error updating this stuff (' + err + ')!')
+        alert('Unexpected error updating this game (' + err + ')!')
       }
       else {
-        that.props.history.push('/stuffs-list');
+        that.props.history.push('/games-list');
       }
     });
   }
@@ -39,8 +39,8 @@ class EditStuff extends Component {
     if (!nextProps.loading && !nextProps.loaded) {
       this.setState({
         loaded: true,
-        name: nextProps.stuff.name,
-        attribute: nextProps.stuff.attribute
+        name: nextProps.game.name,
+        attribute: nextProps.game.attribute
       });
     }
   }
@@ -55,19 +55,19 @@ class EditStuff extends Component {
     }
 
     return (
-      <StuffEntry title="Edit a stuff:" stuff={this.props.stuff} handleSubmit={this.handleSubmit}
-        ref={(stuffEntry) => {this.stuffEntry = stuffEntry}} submitTitle="Update" hasCancelButton />
+      <GameEntry title="Edit a game:" game={this.props.game} handleSubmit={this.handleSubmit}
+        ref={(gameEntry) => {this.gameEntry = gameEntry}} submitTitle="Update" hasCancelButton />
     );
   }
 }
 
 export default withRouter(withTracker(props => {
-  const handle = Meteor.subscribe('stuffs');
+  const handle = Meteor.subscribe('games');
   const loading = !handle.ready();
-  const stuff = Stuffs.findOne(props.match.params.id);
+  const game = Games.findOne(props.match.params.id);
 
   return {
     loading,
-    stuff
+    game
   };
-})(EditStuff));
+})(EditGame));

@@ -41,14 +41,14 @@ class TopBar extends Component {
               <ul className="nav navbar-nav">
 
                 <li>
-                  <NavLink to="/stuffs-list" activeClassName="active">
-                    <span className="glyphicon glyphicon-th-list"></span> Stuffs
+                  <NavLink to="/games-list" activeClassName="active">
+                    <span className="glyphicon glyphicon-th-list"></span> Games
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink to="/new-stuff" activeClassName="active">
-                    <span className="glyphicon glyphicon-plus"></span> Add stuff
+                  <NavLink to="/new-game" activeClassName="active">
+                    <span className="glyphicon glyphicon-plus"></span> Add game
                   </NavLink>
                 </li>
 

@@ -1,25 +1,25 @@
 import { Meteor } from 'meteor/meteor';
-import Stuffs from '/imports/api/stuffs';
+import Games from '/imports/api/games';
 import { _ } from 'meteor/underscore'; 
 
 // called everytime someone subscribes (or unsubscribes (logout)) 
-Meteor.publish('stuffs', function () {
-  return Stuffs.find(); 
+Meteor.publish('games', function () {
+  return Games.find(); 
 
-/* ---> to return only stuff owned by user:
+/* ---> to return only game owned by user:
   var user = Meteor.users.findOne(this.userId);
   if (user) {
 		if (user.username === 'admin') {
-		  return Stuffs.find(); 
+		  return Games.find(); 
 		}
 		else {
-		  return Stuffs.find({owner: this.userId}); 	
+		  return Games.find({owner: this.userId}); 	
 		}  	
   }
 */
 });
 
-Stuffs.allow({
+Games.allow({
   insert: function (userId, doc) {
     // the user must be logged in, and the document must be owned by the user
     return (userId && doc.owner === userId);
@@ -38,7 +38,7 @@ Stuffs.allow({
   fetch: ['owner']
 });
 
-Stuffs.deny({
+Games.deny({
   update: function (userId, doc, fields, modifier) {
     // can't change owners
     return _.contains(fields, 'owner');
